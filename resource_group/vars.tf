@@ -3,3 +3,9 @@ variable "arg_name" {
     default = null
     description = "Name of Resource group"
 }
+
+variable "arg_location" {
+    type    = string
+    default = null
+    description = "Name of Resource group"
+}
