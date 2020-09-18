@@ -1,4 +1,4 @@
-data "azurerm_resource_group" "arg" {
-  name      = var.name
-  location  = var.location
+resource "azurerm_resource_group" "main" {
+  name     = var.name
+  location = var.location
 }
