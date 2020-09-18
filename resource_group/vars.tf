@@ -6,6 +6,6 @@ variable "arg_name" {
 
 variable "arg_location" {
     type    = string
-    default = null
+    default = us
     description = "Name of Resource group"
 }
