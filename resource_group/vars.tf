@@ -6,6 +6,6 @@ variable "name" {
 
 variable "location" {
     type    = string
-    default = "East US"
+    default = "eastus"
     description = "Location of Resource group"
 }
