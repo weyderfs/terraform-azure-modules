@@ -1,10 +1,10 @@
-variable "arg_name" {
+variable "name" {
     type    = string
     default = null
     description = "Name of Resource group"
 }
 
-variable "arg_location" {
+variable "location" {
     type    = string
     default = "East US"
     description = "Location of Resource group"
