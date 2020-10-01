@@ -7,6 +7,7 @@ resource "azurerm_app_service_plan" "asp" {
   name                = var.asp_name
   location            = azurerm_resource_group.arg.location
   resource_group_name = azurerm_resource_group.arg.name
+   kind               = var.asp_kind
 
   sku {
     tier = var.sku_tier
@@ -20,18 +21,17 @@ resource "azurerm_app_service" "aps" {
   resource_group_name = azurerm_resource_group.arg.name
   app_service_plan_id = azurerm_app_service_plan.asp.id
 
-  site_config {
-    dotnet_framework_version = var.site_config
-    scm_type                 = var.scm_type
+  dynamic "site_config" {
+    for_each  = var.site_config
+    
   }
 
-  app_settings = {
-    "SOME_KEY" = "null"
+  dynamic "app_settings" {
+    for_each  = var.app_settings
+
   }
 
-  connection_string {
-    name  = var.connection_string_name
-    type  = var.connection_string_type
-    value = var.connection_string_value
+  dynamic "connection_string" {
+    for_each  = var.connection_string
   }
 }
